@@ -12,7 +12,7 @@ const targetPath = isProduction ? `./src/environments/environtment.prod.ts` :
     production: ${isProduction},
     BASE_URL: "${process.env.BASE_URL}"
   };
- `;
+ `; 
 
  writeFile(targetPath, envFileContent, (err) => {
     if (err) {

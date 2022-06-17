@@ -5,7 +5,7 @@ import {User} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 
-const API_URL = `/auth/`
+const API_URL = `${environment.BASE_URL}/auth/`
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +47,7 @@ export class AuthService
 
   register(user: User): Observable<any> 
   {
+    console.log(API_URL);
     return this.http.post(API_URL + 'sign-up', user);
   }
 

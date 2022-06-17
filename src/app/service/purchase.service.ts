@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {Purchase} from "../model/purchase.model";
 import {Observable} from "rxjs";
 
-const API_URL = `/purchase-history`
+const API_URL = `${environment.BASE_URL}/purchase-history`
 
 @Injectable({
   providedIn: 'root'
