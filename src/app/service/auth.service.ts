@@ -5,7 +5,7 @@ import {User} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 
-const API_URL = `${environment.BASE_URL}/auth/`
+const API_URL = `/auth/`
 
 @Injectable({
   providedIn: 'root'

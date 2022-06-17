@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {Instrument} from "../model/instrument.model";
 import {Observable} from "rxjs";
 
-const API_URL = `${environment.BASE_URL}/instrument`;
+const API_URL = `/instrument`;
 
 @Injectable({
   providedIn: 'root'
