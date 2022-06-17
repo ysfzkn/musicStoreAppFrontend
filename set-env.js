@@ -13,3 +13,9 @@ const targetPath = isProduction ? `./src/environments/environtment.prod.ts` :
     BASE_URL: "${process.env.BASE_URL}"
   };
  `;
+
+ writeFile(targetPath, envFileContent, (err) => {
+    if (err) {
+        throw console.error(err);
+    }
+ })
