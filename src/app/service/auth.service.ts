@@ -47,6 +47,7 @@ export class AuthService
 
   register(user: User): Observable<any> 
   {
+    console.log(`${environment.BASE_URL}`);
     return this.http.post(API_URL + 'sign-up', user);
   }
 
