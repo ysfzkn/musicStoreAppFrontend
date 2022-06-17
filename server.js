@@ -5,7 +5,7 @@ const root = __dirname + "/dist/music-store-app-frontend";
 
 app.use(express.static(root));
 
-app.get('*', (_req, res) => 
+app.get('*', (req, res) => 
 {
   res.sendFile('index.html', {root: root})
 });
