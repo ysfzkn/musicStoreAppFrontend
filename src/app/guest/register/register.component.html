@@ -50,9 +50,15 @@
             #password="ngModel"
             class="form-control"
             required
+            minlength="8"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+
           />
-          <div class="alert-danger" *ngIf="!password.valid && f.submitted">
-            Password is required.
+          <div *ngIf="!password.valid && f.submitted">
+            <div class="alert-danger" *ngIf="['password.errors?.required']">Password is required</div>
+            <div class="alert-danger" *ngIf="['password.errors?.pattern']">Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+            <div class="alert-danger" *ngIf="['password.errors?.minlength']">Password must be at least 8 characters</div>
           </div>
         </div>
   
