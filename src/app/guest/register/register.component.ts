@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../model/user.model";
-import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  faUser = faUserCircle;
+  faUser = faUserPlus;
   errorMessage: string = "";
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
       if (err?.status === 409) {
         this.errorMessage = 'Username already exist.';
       } else {
-        console.log(this.user);
         this.errorMessage = 'Unexpected error occurred. Error is: ' + err?.errorMessage;
         console.log(err);
       }
