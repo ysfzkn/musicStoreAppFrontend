@@ -26,7 +26,7 @@ export class AppComponent
   title = 'musicStoreAppFrontend';
   purchaseItemList: Array<PurchaseItem> = [];
   currentUser: User = new User;
-  currentCount = new BehaviorSubject(0);
+  currentCount = new BehaviorSubject(this.purchaseItemList.length);
 
   constructor(private authenticationService: AuthService, 
     private router: Router,private purchaseService: PurchaseService) 
