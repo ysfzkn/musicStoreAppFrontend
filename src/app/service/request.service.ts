@@ -16,11 +16,21 @@ export abstract class RequestService {
     });
   }
 
-  get getHeaders(): HttpHeaders {
+  get getHeaders(): HttpHeaders 
+  {
     return new HttpHeaders(
       {
         authorization: 'Bearer ' + this.currentUser?.token,
         "Content-Type": "application/json; charset=UTF-8"
+      }
+    );
+  }
+
+  get getHeadersUpload(): HttpHeaders
+  {
+    return new HttpHeaders(
+      {
+        authorization: 'Bearer ' + this.currentUser?.token
       }
     );
   }
