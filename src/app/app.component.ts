@@ -7,7 +7,6 @@ import {faShoppingCart, faSignIn, faUserPlus,
         faHome, faLock, faUser, faSignOut} from "@fortawesome/free-solid-svg-icons";
 import {PurchaseItem} from "./model/purchase-item.model";
 import {PurchaseService} from "./service/purchase.service";
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +25,7 @@ export class AppComponent
   title = 'musicStoreAppFrontend';
   purchaseItemList: Array<PurchaseItem> = [];
   currentUser: User = new User;
-  currentCount = new BehaviorSubject(this.purchaseItemList.length);
+  currentCount : number = 0;
 
   constructor(private authenticationService: AuthService, 
     private router: Router,private purchaseService: PurchaseService) 
@@ -40,11 +39,14 @@ export class AppComponent
     });
   }
 
-  isAdmin() {
+  isAdmin() 
+  {
     return this.currentUser?.role === Role.ADMIN;
   }
 
-  logOut() {
+  logOut() 
+  {
+    this.currentCount = 0;
     this.authenticationService.logOut();
     this.router.navigate(['/login']);
   }

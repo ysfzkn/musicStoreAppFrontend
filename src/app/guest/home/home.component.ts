@@ -28,8 +28,8 @@ export class HomeComponent implements OnInit {
               private purchaseService: PurchaseService,
               private appComp : AppComponent) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void 
+  {
     this.instrumentService.getAllInstruments().subscribe(data => {
       this.instrumentList = data;
     })
@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  purchase(item: Instrument) {
+  purchase(item: Instrument) 
+  {
     if (!this.authService.currentUserValue?.id) {
       this.errorMessage = 'You should log in to buy a instrument';
       return;
