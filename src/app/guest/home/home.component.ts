@@ -32,10 +32,11 @@ export class HomeComponent implements OnInit {
   {
     this.instrumentService.getAllInstruments().subscribe(data => {
       this.instrumentList = data;
-      this.appComp.currentCount = data.length;
+      
     })
     this.purchaseService.getAllPurchaseItems().subscribe(data => {
       this.purchaseItemList = data;
+      this.appComp.currentCount = data.length;
     });
   }
 
