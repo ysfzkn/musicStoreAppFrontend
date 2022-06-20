@@ -24,6 +24,11 @@ export class InstrumentService extends RequestService
     return this.http.post(API_URL, instrument, {headers: this.getHeaders});
   }
 
+  uploadImage(uploadData: FormData): Observable<any> 
+  {
+    return this.http.post(`${API_URL}/upload`, uploadData,  {headers:this.getHeadersUpload,observe:'response'});
+  }
+
   deleteInstrument(instrument: Instrument): Observable<any> 
   {
     return this.http.delete( `${API_URL}/${instrument.id}`, {headers: this.getHeaders});

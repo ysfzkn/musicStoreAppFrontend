@@ -65,17 +65,24 @@
   
             <div class="form-group">
               <label for="type">Type</label>
-              <textarea
+              <input
                 id="type"
-                name="textarea"
+                type="text"
+                name="type"
                 class="form-control"
                 [(ngModel)]="instrument.type"
                 #type="ngModel"
-                required
-              ></textarea>
+                required>
               <div class="alert-danger" *ngIf="f.submitted && !type.valid">
                 Type is required.
               </div>
+              <form enctype="multipart/form-data">
+              <br>
+                <label for="formFile" class="form-label">Choose an Image</label>
+                <input type="file" class="form-control" id="formFile" (change)="onFileChanged($event)">
+                <img [src]="imgURL" alt="image" height="200" width="200" *ngIf="imgURL">
+              <br>
+              </form>
             </div>
   
           </div>

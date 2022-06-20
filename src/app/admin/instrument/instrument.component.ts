@@ -13,19 +13,47 @@ export class InstrumentComponent {
 
   errorMessage: string = "";
 
-  @Input() instrument: Instrument = new Instrument();
+  @Input() 
+  instrument: Instrument = new Instrument();
+  public selectedFile: any;
+  imgURL: any;
+  
   @Output() save = new EventEmitter<any>();
   constructor(private instrumentService: InstrumentService) { }
 
-  saveInstrument() {
+  public onFileChanged(event : any) 
+  {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    // Below part is used to display the selected image
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event2) => 
+    {
+      console.log(reader.result);
+      this.imgURL = reader.result;
+    };
+  }
+  
+  saveInstrument() 
+  {
+    const uploadData = new FormData();
+    uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    this.selectedFile.imageName = this.selectedFile.name;
+    console.log(uploadData);
+    this.instrumentService.uploadImage(uploadData).subscribe((response) => {
+        if (response.status === 200) {
     this.instrumentService.saveInstrument(this.instrument).subscribe(data => {
       this.save.emit(data);
       $('#instrumentModal').modal('hide');
-    }, err => {
-      this.errorMessage = 'Unexpected error occurred.';
-      console.log(err);
-    })
+    });
+    console.log('Image uploaded successfully');
+  } else {
+    console.log('Image not uploaded successfully');
   }
+  });
+}
 
   showInstrumentModal() {
     $('#instrumentModal').modal('show');

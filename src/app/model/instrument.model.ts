@@ -4,6 +4,7 @@ export class Instrument
     name: string = "";
     model: string = "";
     price: number = 0.0;
+    picByte: string = "";  
     type: string = "";
     createTime: Date = new Date();
   
