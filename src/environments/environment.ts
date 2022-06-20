@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  BASE_URL: 'https://music-store-spring-boot.herokuapp.com'
+  BASE_URL: 'https://localhost:8080'
 };
