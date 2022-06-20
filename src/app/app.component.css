@@ -1,0 +1,20 @@
+.navbar-custom {
+    background-color: #ffb9b9;
+}
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.5);
+}
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    vertical-align: top;
+    float: none;
+}

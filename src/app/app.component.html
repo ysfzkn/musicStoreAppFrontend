@@ -1,41 +1,68 @@
-<div class="navbar navbar-expand navbar-dark bg-dark">
-  <a href="https://angular.io" class="navbar-brand ms-1">
+<div class="navbar navbar-expand-lg navbar-custom">
+  <a href="/home" class="navbar-brand ms-3">
     <img
-      width="40"
-      alt="Angular Logo"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      width="70"
+      height="70"
+      alt="Store Icon"
+      src="../assets/musicIcon.png"
     />
-    Angular
+    <strong>   Ozkan Music</strong>
   </a>
 
   <div class="navbar-nav me-auto">
     <li class="nav-item" *ngIf="isAdmin()">
-      <a [routerLink]="['/admin']" routerLinkActive="active" class="nav-link">Admin</a>
+      <a [routerLink]="['/admin']" routerLinkActive="active" class="nav-link text-dark">
+        <fa-icon [icon]="faAdmin" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+        </fa-icon>  Admin
+      </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link">Home</a>
+      <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link text-dark">
+        <fa-icon [icon]="faHome" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+        </fa-icon>  Home
+      </a>
     </li>
   </div>
 
   <div class="navbar-nav ms-auto" *ngIf="!currentUser?.id">
-    <li class="nav-item">
-      <a [routerLink]="['/register']" routerLinkActive="active" class="nav-link">Sign Up</a>
-    </li>
     <li class="nav-item me-1">
-      <a [routerLink]="['/login']" routerLinkActive="active" class="nav-link">Sign In</a>
-    </li>
-  </div>
-
-  <div class="navbar-nav ms-auto" *ngIf="currentUser?.id">
-    <li class="nav-item">
-      <a [routerLink]="['/profile']" routerLinkActive="active" class="nav-link">
-        {{currentUser.username}}
+      <a [routerLink]="['/register']" routerLinkActive="active" class="nav-link text-dark">
+        <fa-icon [icon]="faRegister" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+        </fa-icon>  Sign Up
       </a>
     </li>
     <li class="nav-item me-1">
-      <a (click)="logOut()" class="nav-link"
+      <a [routerLink]="['/login']" routerLinkActive="active" class="nav-link text-dark">
+      <fa-icon [icon]="faLogin" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+      </fa-icon>   Sign In
+    </a>
+    </li>
+  </div>
+
+  <div class="navbar-nav ms-auto align-items-center" *ngIf="currentUser?.id">
+    
+    <li class="nav-item me-3">
+      <div class="fa-3x">
+        <span class="fa-layers fa-fw">
+            <fa-icon [icon]="faShop" class="ms-auto me-auto user-icon mr-1" size="1x"  style="color:#000000;">
+            </fa-icon>
+            <span class="fa-layers-counter" style="background:rgb(219, 33, 0);">{{currentCount}}</span>
+        </span>
+      </div>
+    </li>
+
+    <li class="nav-item me-3">
+      <a [routerLink]="['/profile']" routerLinkActive="active" class="nav-link text-dark ">
+        <fa-icon [icon]="faUser" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+        </fa-icon>  {{currentUser.username}}
+      </a>
+    </li>
+
+    <li class="nav-item me-1">
+      <a (click)="logOut()" class="nav-link text-dark"
       style="cursor: pointer;">
-        Sign Out
+      <fa-icon [icon]="faSignout" class="ms-auto me-auto user-icon mr-1" size="1x" style="color:#000000;">
+      </fa-icon>  Sign Out
       </a>
     </li>
   </div>
