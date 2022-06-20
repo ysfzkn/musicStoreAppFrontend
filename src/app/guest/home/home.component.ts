@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   purchase(item: Instrument) 
   {
     if (!this.authService.currentUserValue?.id) {
-      this.errorMessage = 'You should log in to buy a instrument';
+      this.errorMessage = 'Please login to buy an instrument';
       return;
     }
 
