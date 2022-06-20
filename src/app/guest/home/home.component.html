@@ -1,6 +1,6 @@
 
 <div class="container p-3">
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning" role="alert" *ngIf="errorMessage">
       {{errorMessage}}
     </div>
   
@@ -13,7 +13,7 @@
       <div
         *ngFor="let item of instrumentList; index as ind"
         class="card m-3"
-        style="width: 300px; background-color: rgb(234, 234, 234);"
+        style="width: 300px; background-color: lightgray;"
       >
   
         <img alt="image" class="card-img-top" src="data:image/JPEG;base64,{{item.picByte}}" 
