@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../model/user.model";
-import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faUserLarge} from "@fortawesome/free-solid-svg-icons";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   user: User = new User();
-  faUser = faUserCircle;
+  faUser = faUserLarge;
   errorMessage: string = "";
 
   constructor(private authService: AuthService, private router: Router) { }
