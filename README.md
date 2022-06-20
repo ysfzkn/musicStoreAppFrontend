@@ -5,7 +5,7 @@ This is a Single Page Appliaction with client-side rendering. It includes [backe
 The frontend client makes API calls to the backend server.
 
 #### Live API Demo: [https://music-store-spring-boot.herokuapp.com/](https://music-store-spring-boot.herokuapp.com/)
-#### Live App Demo: [https://music-store-spring-boot.herokuapp.com/](https://music-store-spring-boot.herokuapp.com/)
+#### Live App Demo: [https://music-store-spring-boot.herokuapp.com/](https://music-store-app-frontend.herokuapp.com/)
 
 
 ## Screenshot
